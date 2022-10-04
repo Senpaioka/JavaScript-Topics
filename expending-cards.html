@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expending Cards</title>
+</head>
+
+<style>
+    /* common css */
+* {
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    width: 90vh;
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.active{
+    flex: 5;
+}
+
+.panel .active h3{
+    opacity: 1;
+}
+
+@media(max-width: 480px) {
+    .container{
+        width: 100vh;
+    }
+}
+
+/* .panel:nth-of-type(4),
+.panel:nth-of-type(5) {
+    display: none;
+} */
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="panel" style="background-color: aqua;">
+            <!-- <h3>Explore the world</h3> -->
+        </div>
+
+        <div class="panel" style="background-color: violet;">
+            <!-- <h3>Explore the world</h3> -->
+        </div>
+
+        <div class="panel" style="background-color: blueviolet;">
+            <!-- <h3>Explore the world</h3> -->
+        </div>
+
+        <div class="panel" style="background-color: greenyellow;">
+            <!-- <h3>Explore the world</h3> -->
+        </div>
+
+        <div class="panel" style="background-color: red;">
+            <!-- <h3>Explore the world</h3> -->
+        </div>
+
+    </div>
+
+</body>
+
+
+<script>
+    
+var panels = document.querySelectorAll(".panel");
+
+panels.forEach(panel => {
+    panel.addEventListener("click", () => {
+        removeActiveClasses();
+        panel.classList.add("active")
+    })
+});
+
+
+function removeActiveClasses(){
+    panels.forEach(panel => {
+        panel.classList.remove("active")
+    })
+}
+
+</script>
+
+</html>
